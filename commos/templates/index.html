@@ -1,0 +1,40 @@
+{% extends "./base.html" %}
+
+{% block tittle %} App Notas {% endblock %}
+{% block body %}
+ <center><h1>App Notas</h1></center>
+ <button onclick="window.location.href='registrar/'" >Nueva notas</button>
+<div class="row">
+    
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+       
+        <div class="table-responsive py-2">
+            <div class="table responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                        <th>Codigo</th>
+                        <th>Nota</th>
+                        <th>Fecha</th>
+                        <th colspan="3">Opciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for c in notas%}
+                        <tr>
+                            <td>{{c.codigo}}</td>
+                            <td>{{c.nota}}</td>
+                            <td>{{c.fecha}}</td>
+                            <td><a href="ver/{{c.codigo}}" class="btn btn-info">Ver</a></td>
+                            <td><a href="edicion/{{c.codigo}}" class="btn btn-info">Editar</a></td>
+                            <td><a href="borrar/{{c.codigo}}" class="btn btn-info">Borrar</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+       
+</div>
+{% endblock %}
